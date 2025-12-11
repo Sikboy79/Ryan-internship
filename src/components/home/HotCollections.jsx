@@ -6,13 +6,14 @@ import ErrorComponent from "../UI/ErrorComponent";
 
 
 function HotCollections() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setLoading] = useState(true);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     async function fetchData() {
@@ -21,12 +22,11 @@ function HotCollections() {
           "https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections"
         );
         setData(response.data);
-        console.log(response.data);
         setLoading(false);
-        if (error) setError(null);
+        setError(null);
       } catch (error) {
         setError("failed to load");
-        console.log(error);
+        setLoading(false);
       }
     }
     fetchData();
@@ -47,21 +47,21 @@ function HotCollections() {
           ) : isLoading ? (
             <>
               {new Array(6).fill(0).map((_, id) => (
-                <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={id}>
                   <div className="nft_coll">
                     <div className="nft_wrap">
                       <Link to="/item-details">
                         <img
                           src={id.nftImage}
                           className="lazy img-fluid"
-                          alt=""
+                          alt="loading"
                         />
                       </Link>
                     </div>
-                    <div className="nft_coll_pp">
+                    <div className="nft_coll_pp" >
                       <Link to="/author">
                         <img
-                          className="lazy pp-coll"
+                          className="lazy pp-coll" src="" alt="loading"
                           src={id.authorImage}
                           alt=""
                         />
@@ -82,7 +82,7 @@ function HotCollections() {
             data.map((hotCollection) => (
               <HotCollection
                 hotCollection={hotCollection}
-                key={HotCollection.nftId}
+                key={hotCollection.nftId}
               />
             ))
           )}
