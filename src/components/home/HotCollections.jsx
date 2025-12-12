@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import HotCollection from "../UI/HotCollection";
@@ -9,11 +8,10 @@ import "slick-carousel/slick/slick-theme.css";
 import { NextArrow, PrevArrow } from "../UI/SliderArrows";
 import HotCollectionSkeleton from "../UI/HotCollectionSkeleton";
 
-function HotCollections(props) {
+function HotCollections() {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setLoading] = useState(true);
-  const { className, style, onClick } = props;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -37,7 +35,7 @@ function HotCollections(props) {
   }, []);
 
   const settings = {
-    slidesToShow: 4, // default desktop
+    slidesToShow: 4, 
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
