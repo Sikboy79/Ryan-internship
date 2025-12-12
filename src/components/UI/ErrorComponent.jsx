@@ -15,7 +15,7 @@ const ErrorComponent = ({ message }) => {
         }}
       >
         <h3> Oops!</h3>
-        <p>{message || "Something went wrong while loading collections"}</p>
+        <p>{message || "Something went wrong while loading"}</p>
       </div>
     </div>
   );

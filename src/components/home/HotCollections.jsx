@@ -3,13 +3,17 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import HotCollection from "../UI/HotCollection";
 import ErrorComponent from "../UI/ErrorComponent";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { NextArrow, PrevArrow } from "../UI/SliderArrows";
+import HotCollectionSkeleton from "../UI/HotCollectionSkeleton";
 
-
-function HotCollections() {
-
+function HotCollections(props) {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setLoading] = useState(true);
+  const { className, style, onClick } = props;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -32,6 +36,33 @@ function HotCollections() {
     fetchData();
   }, []);
 
+  const settings = {
+    slidesToShow: 4, // default desktop
+    slidesToScroll: 1,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    responsive: [
+      {
+        breakpoint: 770,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 400,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <section id="section-collections" className="no-bottom">
       <div className="container">
@@ -45,46 +76,22 @@ function HotCollections() {
           {error ? (
             <ErrorComponent message={error} />
           ) : isLoading ? (
-            <>
-              {new Array(6).fill(0).map((_, id) => (
-                <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={id}>
-                  <div className="nft_coll">
-                    <div className="nft_wrap">
-                      <Link to="/item-details">
-                        <img
-                          src={id.nftImage}
-                          className="lazy img-fluid"
-                          alt="loading"
-                        />
-                      </Link>
-                    </div>
-                    <div className="nft_coll_pp" >
-                      <Link to="/author">
-                        <img
-                          className="lazy pp-coll" src="" alt="loading"
-                          src={id.authorImage}
-                          alt=""
-                        />
-                      </Link>
-                      <i className="fa fa-check"></i>
-                    </div>
-                    <div className="nft_coll_info">
-                      <Link to="/explore">
-                        <h4>Pinky Ocean</h4>
-                      </Link>
-                      <span>ERC-192</span>
-                    </div>
-                  </div>
-                </div>
+            <div className="row">
+              {Array.from({ length: 4 }).map((_, i) => (
+                <HotCollectionSkeleton key={i} />
               ))}
-            </>
+            </div>
           ) : (
-            data.map((hotCollection) => (
-              <HotCollection
-                hotCollection={hotCollection}
-                key={hotCollection.nftId}
-              />
-            ))
+            <div style={{ padding: "20px" }}>
+              <Slider {...settings}>
+                {data.map((hotCollection) => (
+                  <HotCollection
+                    hotCollection={hotCollection}
+                    key={hotCollection.nftId}
+                  />
+                ))}
+              </Slider>
+            </div>
           )}
         </div>
       </div>

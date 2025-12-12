@@ -3,11 +3,14 @@ import EthImage from "../images/ethereum.svg";
 import { Link } from "react-router-dom";
 import AuthorImage from "../images/author_thumbnail.jpg";
 import nftImage from "../images/nftImage.jpg";
+import HotCollection from "../components/UI/HotCollection";
 
-const ItemDetails = () => {
+
+const ItemDetails = ({ hotCollection }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
 
   return (
     <div id="wrapper">
@@ -25,7 +28,7 @@ const ItemDetails = () => {
               </div>
               <div className="col-md-6">
                 <div className="item_info">
-                  <h2>Rainbow Style #194</h2>
+                  <h2></h2>
 
                   <div className="item_info_counts">
                     <div className="item_info_views">

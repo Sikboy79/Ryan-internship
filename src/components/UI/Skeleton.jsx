@@ -1,16 +1,17 @@
-import React from "react";
 
-const Skeleton = ({ width, height, borderRadius }) => {
+const SkeletonBlock = ({ width, height, radius, style = {} }) => {
   return (
     <div
-      className="skeleton-box"
+      className="skeleton-block"
       style={{
         width,
         height,
-        borderRadius,
+        borderRadius: radius,
+        ...style,
       }}
     ></div>
   );
 };
 
-export default Skeleton;
+export default SkeletonBlock;
+
