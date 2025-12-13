@@ -928,7 +928,7 @@ header:not(.header-mobile) #mainmenu > li:hover ul.mega {
   transition: transform 0.7s ease;
 }
 
-.hot-collection-image:hover img{
+.hot-collection-image:hover img {
   transform: scale(1.12);
 }
 
@@ -16669,7 +16669,6 @@ img {
   .slick-list {
     margin: 0 -8px;
   }
-
 }
 
 /* -------------------------------------------------- 
@@ -16793,7 +16792,7 @@ img {
 .skeleton-card {
   padding: 14px;
   border-radius: 12px;
-  border: 1px solid #e3e3e3;    
+  border: 1px solid #e3e3e3;
   background: #fff;
 }
 
@@ -16804,6 +16803,8 @@ img {
   overflow: hidden;
   margin: 0 auto;
 }
+
+/* Hot collection Skeleton */
 
 .skeleton-avatar-wrapper {
   position: relative;
@@ -16820,11 +16821,43 @@ img {
 
 .skeleton__lines {
   position: relative;
-  top: -30px
+  top: -30px;
 }
 
 .skeleton__lines-small {
   padding-bottom: 20px;
+}
+
+/* New items skeleton */
+
+.skeleton__img-newItem {
+  position: relative;
+  top: 30px;
+}
+
+.skeleton-avatar-wrapper-newItem {
+  position: relative;
+  width: fit-content;
+  top: -275px;
+}
+
+.skeleton__lines-newItem {
+  position: relative;
+  top: -30px;
+  left: -25px;
+}
+
+.skeleton__lines-small-newItem {
+  position: relative;
+  display: flex;
+  top: -10px;
+  left: -58px;
+}
+
+.skeleton__likes-newItem {
+  position: relative;
+  left: 50px;
+  
 }
 
 .skeleton-block::after {

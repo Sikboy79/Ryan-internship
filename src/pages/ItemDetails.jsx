@@ -3,10 +3,10 @@ import EthImage from "../images/ethereum.svg";
 import { Link } from "react-router-dom";
 import AuthorImage from "../images/author_thumbnail.jpg";
 import nftImage from "../images/nftImage.jpg";
-import HotCollection from "../components/UI/HotCollection";
 
 
-const ItemDetails = ({ hotCollection }) => {
+
+const ItemDetails = ({ itemdetail }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
