@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import CountdownTimer from "./CountdownTimer";
 
 const NewItem = ({ newItem }) => {
   return (
@@ -16,7 +17,7 @@ const NewItem = ({ newItem }) => {
             <i className="fa fa-check"></i>
           </Link>
         </div>
-        <div className="de_countdown">5h 30m 32s</div>
+        <CountdownTimer expiryDate={newItem.expiryDate} />
 
         <div className="nft__item_wrap">
           <div className="nft__item_extra">
