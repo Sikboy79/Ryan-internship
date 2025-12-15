@@ -16843,6 +16843,38 @@ img {
   animation: loading 1.2s infinite;
 }
 
+/* New items skeleton */
+
+.skeleton__img-newItem {
+  position: relative;
+  top: 30px;
+}
+
+.skeleton-avatar-wrapper-newItem {
+  position: relative;
+  width: fit-content;
+  top: -275px;
+}
+
+.skeleton__lines-newItem {
+  position: relative;
+  top: -30px;
+  left: -25px;
+}
+
+.skeleton__lines-small-newItem {
+  position: relative;
+  display: flex;
+  top: -10px;
+  left: -58px;
+}
+
+.skeleton__likes-newItem {
+  position: relative;
+  left: 50px;
+  
+}
+
 @keyframes loading {
   0% {
     left: -150px;
