@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import AuthorImage from "../../images/author_thumbnail.jpg";
+import nftImage from "../../images/nftImage.jpg";
 import axios from "axios";
 import ErrorComponent from "../UI/ErrorComponent";
 import Slider from "react-slick";
@@ -29,6 +32,7 @@ const NewItems = (newItem) => {
     }
     fetchData();
   }, []);
+  console.log(data);
 
   const settings = {
     slidesToShow: 4,
