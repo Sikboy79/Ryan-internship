@@ -1,8 +1,55 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import AuthorImage from "../../images/author_thumbnail.jpg";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import TopSellerSkeleton from "../UI/TopSellerSkeleton";
+import TopSeller from "../UI/TopSeller";
+import ErrorComponent from "../UI/ErrorComponent";
 
-const TopSellers = () => {
+
+function TopSellers() {
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(null);
+  const [isLoading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await axios.get(
+          "https://us-central1-nft-cloud-functions.cloudfunctions.net/topSellers"
+        );
+        setData(response.data);
+        setLoading(false);
+        setError(null);
+      } catch (error) {
+        setError("failed to load");
+        setLoading(false);
+      }
+    }
+    fetchData();
+  }, []);
+
+  const settings = {
+      responsive: [
+        {
+          breakpoint: 770,
+          settings: {
+            slidesToShow: 3,
+          },
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+          },
+        },
+        {
+          breakpoint: 400,
+          settings: {
+            slidesToShow: 1,
+          },
+        },
+      ],
+    };
+
   return (
     <section id="section-popular" className="pb-5">
       <div className="container">
@@ -15,30 +62,27 @@ const TopSellers = () => {
           </div>
           <div className="col-md-12">
             <ol className="author_list">
-              {new Array(12).fill(0).map((_, index) => (
-                <li key={index}>
-                  <div className="author_list_pp">
-                    <Link to="/author">
-                      <img
-                        className="lazy pp-author"
-                        src={AuthorImage}
-                        alt=""
-                      />
-                      <i className="fa fa-check"></i>
-                    </Link>
-                  </div>
-                  <div className="author_list_info">
-                    <Link to="/author">Monica Lucas</Link>
-                    <span>2.1 ETH</span>
-                  </div>
-                </li>
-              ))}
+              {error ? (
+                <ErrorComponent message={error} />
+              ) : isLoading ? (
+                <div className="row">
+                  {Array.from({ length: 12 }).map((_, i) => (
+                    <TopSellerSkeleton key={i} />
+                  ))}
+                </div>
+              ) : (
+                <div>
+                  {data.map((topSeller) => (
+                    <TopSeller topSeller={topSeller} key={topSeller.id} />
+                  ))}
+                </div>
+              )}
             </ol>
           </div>
         </div>
       </div>
     </section>
   );
-};
+}
 
 export default TopSellers;
