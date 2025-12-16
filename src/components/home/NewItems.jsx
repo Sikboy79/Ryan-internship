@@ -29,7 +29,6 @@ const NewItems = (newItem) => {
     }
     fetchData();
   }, []);
-  console.log(data);
 
   const settings = {
     slidesToShow: 4,
