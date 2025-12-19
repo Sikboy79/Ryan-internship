@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const HotCollection = ({ hotCollection }) => {
   return (
     <div className="hot-collection-card">
-      <Link to={`/item-details/${hotCollection.nftId}`}>
+      <Link to={`/author/${hotCollection.authorId}`}>
         <div className="hot-collection-image">
           <img src={hotCollection.nftImage} alt={hotCollection.title} />
         </div>

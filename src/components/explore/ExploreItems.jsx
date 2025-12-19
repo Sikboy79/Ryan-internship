@@ -33,7 +33,7 @@ function ExploreItems() {
 
         const response = await axios.get(url);
         setData(response.data);
-        setLoading(false);
+        // setLoading(false);
         setError(null);
       } catch (err) {
         setError("failed to load");
