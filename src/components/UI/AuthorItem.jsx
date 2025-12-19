@@ -17,7 +17,6 @@ function AuthorItem({ nft, author }) {
               <button>Buy Now</button>
             </div>
           </div>
-
           <Link to={`/item-details/${nft.nftId}`}>
             <img
               src={nft.nftImage}

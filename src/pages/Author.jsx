@@ -54,12 +54,9 @@ const Author = () => {
 
   useEffect(() => {
     if (!authorId || author.followers === undefined) return;
-
     const storedFollow =
       localStorage.getItem(`follow_author_${authorId}`) === "true";
-
     setIsFollowing(storedFollow);
-
     setFollowers(author.followers + (storedFollow ? 1 : 0));
   }, [authorId, author.followers]);
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 import { useEffect, useState } from "react";
 
@@ -7,9 +7,7 @@ const CountdownTimer = ({ expiryDate }) => {
     const now = Date.now();
     const expiry = new Date(expiryDate).getTime();
     const diff = expiry - now;
-
     if (diff <= 0) return null;
-
     return {
       hours: Math.floor(diff / (1000 * 60 * 60)),
       minutes: Math.floor((diff / (1000 * 60)) % 60),
@@ -21,16 +19,12 @@ const CountdownTimer = ({ expiryDate }) => {
 
   useEffect(() => {
     if (!timeLeft) return;
-
     const interval = setInterval(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
-
     return () => clearInterval(interval);
   }, [expiryDate, timeLeft]);
-
   if (!timeLeft) return null;
-
   const pad = (num) => String(num).padStart(2, "0");
 
   return (
