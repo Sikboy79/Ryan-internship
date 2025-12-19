@@ -1,9 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-
-
-
 const HotCollection = ({ hotCollection }) => {
   return (
     <div className="hot-collection-card">

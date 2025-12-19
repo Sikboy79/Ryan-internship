@@ -16,7 +16,6 @@ function Explore({ explore }) {
           </Link>
         </div>
         <CountdownTimer expiryDate={explore.expiryDate} />
-
         <div className="nft__item_wrap">
           <div className="nft__item_extra">
             <div className="nft__item_buttons">
@@ -35,22 +34,22 @@ function Explore({ explore }) {
               </div>
             </div>
           </div>
-        <Link to={`/item-details/${explore.nftId}`}>
-          <img
-            src={explore.nftImage}
-            className="lazy nft__item_preview"
-            alt="Loading..."
-          />
-        </Link>
+          <Link to={`/item-details/${explore.nftId}`}>
+            <img
+              src={explore.nftImage}
+              className="lazy nft__item_preview"
+              alt="Loading..."
+            />
+          </Link>
         </div>
-          <div className="nft__item_info">
-            <h4>{explore.title}</h4>
-            <div className="nft__item_price">{explore.price} ETH</div>
-            <div className="nft__item_like">
-              <i className="fa fa-heart"></i>
-              <span>{explore.likes}</span>
-            </div>
+        <div className="nft__item_info">
+          <h4>{explore.title}</h4>
+          <div className="nft__item_price">{explore.price} ETH</div>
+          <div className="nft__item_like">
+            <i className="fa fa-heart"></i>
+            <span>{explore.likes}</span>
           </div>
+        </div>
       </div>
     </div>
   );

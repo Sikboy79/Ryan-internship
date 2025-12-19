@@ -1,8 +1,8 @@
-import React from 'react'
-import SkeletonBlock from './Skeleton';
+import React from "react";
+import SkeletonBlock from "./Skeleton";
 
 const ExploreSkeleton = () => {
-    return (
+  return (
     <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12">
       <div className="skeleton-card">
         <div className="skeleton__img-newItem">
@@ -28,6 +28,6 @@ const ExploreSkeleton = () => {
       </div>
     </div>
   );
-}
+};
 
-export default ExploreSkeleton
+export default ExploreSkeleton;

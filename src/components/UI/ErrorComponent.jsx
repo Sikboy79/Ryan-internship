@@ -2,7 +2,7 @@ import React from "react";
 
 const ErrorComponent = ({ message }) => {
   return (
-    <div className="col-12" >
+    <div className="col-12">
       <div
         style={{
           padding: "2rem",

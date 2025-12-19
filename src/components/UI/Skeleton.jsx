@@ -1,4 +1,3 @@
-
 const SkeletonBlock = ({ width, height, radius, style = {} }) => {
   return (
     <div
@@ -14,4 +13,3 @@ const SkeletonBlock = ({ width, height, radius, style = {} }) => {
 };
 
 export default SkeletonBlock;
-

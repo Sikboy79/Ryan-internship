@@ -18,7 +18,6 @@ const NewItem = ({ newItem }) => {
           </Link>
         </div>
         <CountdownTimer expiryDate={newItem.expiryDate} />
-
         <div className="nft__item_wrap">
           <div className="nft__item_extra">
             <div className="nft__item_buttons">

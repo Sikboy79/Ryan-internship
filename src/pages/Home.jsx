@@ -7,7 +7,6 @@ import NewItems from "../components/home/NewItems";
 import TopSellers from "../components/home/TopSellers";
 
 const Home = () => {
-
   return (
     <div id="wrapper">
       <div className="no-bottom no-top" id="content">
