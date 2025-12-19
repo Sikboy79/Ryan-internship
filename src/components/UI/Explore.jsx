@@ -10,7 +10,7 @@ function Explore({ explore }) {
     >
       <div className="nft__item">
         <div className="author_list_pp">
-          <Link to="/author" data-bs-toggle="tooltip" data-bs-placement="top">
+          <Link to={`/author/${explore.authorId}`}>
             <img className="lazy" src={explore.authorImage} alt="" />
             <i className="fa fa-check"></i>
           </Link>
