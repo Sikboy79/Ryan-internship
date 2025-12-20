@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { NextArrow, PrevArrow } from "../UI/SliderArrows";
 import NewItem from "../UI/NewItem";
 import NewItemSkeleton from "../UI/NewItemSkeleton";
+import { FadeInItem } from "../UI/Animations";
 
 const NewItems = (newItem) => {
   const [data, setData] = useState([]);
@@ -76,13 +77,15 @@ const NewItems = (newItem) => {
               ))}
             </div>
           ) : (
+            <FadeInItem delay="50">
             <div style={{ padding: "20px" }}>
               <Slider {...settings}>
-                {data.map((newItem) => (
-                  <NewItem newItem={newItem} key={newItem.nftId} />
-                ))}
+                  {data.map((newItem) => (
+                    <NewItem newItem={newItem} key={newItem.nftId} />
+                  ))}
               </Slider>
-            </div>
+              </div>
+            </FadeInItem>
           )}
         </div>
       </div>

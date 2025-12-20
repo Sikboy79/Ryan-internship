@@ -3,7 +3,7 @@ import axios from "axios";
 import TopSellerSkeleton from "../UI/TopSellerSkeleton";
 import TopSeller from "../UI/TopSeller";
 import ErrorComponent from "../UI/ErrorComponent";
-
+import { FadeInItem } from "../UI/Animations";
 
 function TopSellers() {
   const [data, setData] = useState([]);
@@ -28,27 +28,27 @@ function TopSellers() {
   }, []);
 
   const settings = {
-      responsive: [
-        {
-          breakpoint: 770,
-          settings: {
-            slidesToShow: 3,
-          },
+    responsive: [
+      {
+        breakpoint: 770,
+        settings: {
+          slidesToShow: 3,
         },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 2,
-          },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
         },
-        {
-          breakpoint: 400,
-          settings: {
-            slidesToShow: 1,
-          },
+      },
+      {
+        breakpoint: 400,
+        settings: {
+          slidesToShow: 1,
         },
-      ],
-    };
+      },
+    ],
+  };
 
   return (
     <section id="section-popular" className="pb-5">
@@ -71,11 +71,13 @@ function TopSellers() {
                   ))}
                 </div>
               ) : (
-                <div>
-                  {data.map((topSeller) => (
-                    <TopSeller topSeller={topSeller} key={topSeller.id} />
-                  ))}
-                </div>
+                <FadeInItem delay="50">
+                  <div>
+                    {data.map((topSeller) => (
+                      <TopSeller topSeller={topSeller} key={topSeller.id} />
+                    ))}
+                  </div>
+                </FadeInItem>
               )}
             </ol>
           </div>
