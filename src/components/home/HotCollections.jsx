@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { NextArrow, PrevArrow } from "../UI/SliderArrows";
 import HotCollectionSkeleton from "../UI/HotCollectionSkeleton";
+import { FadeInItem } from "../UI/Animations";
 
 function HotCollections() {
   const [data, setData] = useState([]);
@@ -35,7 +36,7 @@ function HotCollections() {
   }, []);
 
   const settings = {
-    slidesToShow: 4, 
+    slidesToShow: 4,
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
@@ -83,10 +84,11 @@ function HotCollections() {
             <div style={{ padding: "20px" }}>
               <Slider {...settings}>
                 {data.map((hotCollection) => (
-                  <HotCollection
-                    hotCollection={hotCollection}
-                    key={hotCollection.nftId}
-                  />
+                  <FadeInItem delay="50" key={hotCollection.nftId}>
+                    <HotCollection
+                      hotCollection={hotCollection}
+                    />
+                  </FadeInItem>
                 ))}
               </Slider>
             </div>

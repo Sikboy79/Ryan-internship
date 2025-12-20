@@ -3,6 +3,7 @@ import axios from "axios";
 import Explore from "../UI/Explore";
 import ExploreSkeleton from "../UI/ExploreSkeleton";
 import ErrorComponent from "../UI/ErrorComponent";
+import { FadeInItem } from "../UI/Animations";
 
 function ExploreItems() {
   const [data, setData] = useState([]);
@@ -95,13 +96,15 @@ function ExploreItems() {
           </div>
           {visibleCount < data.length && (
             <div className="col-md-12 text-center">
-              <button
-                id="loadmore"
-                className="btn-main lead"
-                onClick={handleLoadMore}
-              >
-                Load more
-              </button>
+              <FadeInItem delay="200">
+                <button
+                  id="loadmore"
+                  className="btn-main lead"
+                  onClick={handleLoadMore}
+                >
+                  Load more
+                </button>
+              </FadeInItem>
             </div>
           )}
         </>
